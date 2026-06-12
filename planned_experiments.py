@@ -23,10 +23,6 @@ from scipy import stats
 
 from swarm_pursuit_evasion_3 import SimulationConfig, SwarmSimulation, create_scenario, run_and_snapshot
 
-# ──────────────────────────────────────────────
-# Helpers
-# ──────────────────────────────────────────────
-
 RESULTS_DIR   = Path("experiment_results")
 SNAPSHOTS_DIR = Path("experiment_results/snapshots")
 RESULTS_DIR.mkdir(exist_ok=True)
@@ -146,9 +142,8 @@ def print_summary(label: str, agg: dict) -> None:
           f"[{agg['avg_survival_time']['min']:.0f} – {agg['avg_survival_time']['max']:.0f}]")
 
 
-# ──────────────────────────────────────────────
+
 # Experiment 1 – Parameter Sensitivity Analysis
-# ──────────────────────────────────────────────
 
 def experiment1_parameter_sensitivity():
     """
@@ -165,7 +160,7 @@ def experiment1_parameter_sensitivity():
 
     output = {"experiment": "parameter_sensitivity", "timestamp": datetime.now().isoformat()}
 
-    # ── 1A  Swarm size ──────────────────────────────────────────────
+    # 1A  Swarm size 
     print("\n[1A] Swarm size sweep (n_pursuers = n_evaders ∈ {3, 5, 10})")
     swarm_sizes = [3, 5, 10]
     size_results = {}
@@ -207,7 +202,7 @@ def experiment1_parameter_sensitivity():
             agg = size_results[evader_type][str(n)]["aggregate"]
             print_summary(f"n={n}, {evader_type}", agg)
 
-    # ── 1B  Inertia weight ──────────────────────────────────────────
+    # 1B  Inertia weight 
     print("\n[1B] Inertia weight sweep (ω ∈ {0.4, 0.6, 0.8})")
     inertia_values = [0.4, 0.6, 0.8]
     inertia_results = {}
@@ -247,7 +242,7 @@ def experiment1_parameter_sensitivity():
             agg = inertia_results[evader_type][str(w)]["aggregate"]
             print_summary(f"ω={w}, {evader_type}", agg)
 
-    # ── 1C  Sensing radius ─────────────────────────────────────────
+    # 1C  Sensing radius
     print("\n[1C] Sensing radius sweep (r ∈ {20, 30, 50} units)")
     sensing_radii = [20, 30, 50]
     sensing_results = {}
@@ -295,9 +290,8 @@ def experiment1_parameter_sensitivity():
     return output
 
 
-# ──────────────────────────────────────────────
+
 # Experiment 2 – Environmental Complexity
-# ──────────────────────────────────────────────
 
 def experiment2_environmental_complexity():
     """
@@ -380,9 +374,8 @@ def experiment2_environmental_complexity():
     return output
 
 
-# ──────────────────────────────────────────────
+
 # Experiment 3 – Scalability Analysis
-# ──────────────────────────────────────────────
 
 def experiment3_scalability():
     """
@@ -469,9 +462,6 @@ def experiment3_scalability():
     return output
 
 
-# ──────────────────────────────────────────────
-# Entry point
-# ──────────────────────────────────────────────
 
 if __name__ == "__main__":
     import argparse

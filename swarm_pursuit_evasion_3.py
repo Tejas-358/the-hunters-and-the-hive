@@ -716,7 +716,7 @@ def run_and_snapshot(sim: SwarmSimulation, snapshot_step: int = 60, filename: st
         if all(e.captured for e in sim.evaders):
             break
 
-    # ── Render current state ──────────────────────────────────────────
+    # Render current state 
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.set_xlim(0, sim.config.world_size[0])
     ax.set_ylim(0, sim.config.world_size[1])
