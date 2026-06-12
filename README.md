@@ -2,7 +2,7 @@
 
 A swarm robotics simulation comparing **Particle Swarm Optimization (PSO)** and **Ant Colony Optimization (ACO)** strategies for pursuit-evasion scenarios.
 
-![Pursuit-Evasion Simulation](experiment_results\snapshots\snapshot_exp1A_n10_ACO_step30.png) 
+![Pursuit-Evasion Simulation](experiment_results/snapshots/snapshot_exp1A_n10_ACO_step30.png) 
 
 ## Overview
 
