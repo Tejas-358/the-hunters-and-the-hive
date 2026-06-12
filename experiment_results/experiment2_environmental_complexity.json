@@ -1,0 +1,2185 @@
+{
+  "experiment": "environmental_complexity",
+  "timestamp": "2026-05-12T20:54:55.521069",
+  "results": {
+    "open_field": {
+      "ACO": {
+        "config": {
+          "scenario": "open_field",
+          "evader_type": "ACO",
+          "n_obstacles": 0
+        },
+        "aggregate": {
+          "n_runs": 30,
+          "capture_rate_mean": 0.7777777777777778,
+          "capture_rate_std": 0.39752319599996266,
+          "survival_mean": 164.04444444444442,
+          "survival_std": 168.3008050713196,
+          "survival_min": 56.333333333333336,
+          "survival_max": 500.0
+        },
+        "raw": [
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 90.0,
+            "total_steps": 124,
+            "capture_times": [
+              49,
+              98,
+              123
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 64.33333333333333,
+            "total_steps": 81,
+            "capture_times": [
+              43,
+              70,
+              80
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 90.66666666666667,
+            "total_steps": 121,
+            "capture_times": [
+              47,
+              105,
+              120
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 76.66666666666667,
+            "total_steps": 108,
+            "capture_times": [
+              44,
+              79,
+              107
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 68.0,
+            "total_steps": 96,
+            "capture_times": [
+              48,
+              61,
+              95
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 78.33333333333333,
+            "total_steps": 114,
+            "capture_times": [
+              45,
+              77,
+              113
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 73.33333333333333,
+            "total_steps": 117,
+            "capture_times": [
+              43,
+              61,
+              116
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 101.66666666666667,
+            "total_steps": 136,
+            "capture_times": [
+              57,
+              113,
+              135
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 56.333333333333336,
+            "total_steps": 68,
+            "capture_times": [
+              47,
+              55,
+              67
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 74.0,
+            "total_steps": 500,
+            "capture_times": [
+              51,
+              97
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 77.33333333333333,
+            "total_steps": 100,
+            "capture_times": [
+              51,
+              82,
+              99
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 86.66666666666667,
+            "total_steps": 129,
+            "capture_times": [
+              47,
+              85,
+              128
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 94.0,
+            "total_steps": 500,
+            "capture_times": [
+              68,
+              120
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 70.66666666666667,
+            "total_steps": 106,
+            "capture_times": [
+              39,
+              68,
+              105
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 78.0,
+            "total_steps": 125,
+            "capture_times": [
+              46,
+              64,
+              124
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 82.33333333333333,
+            "total_steps": 111,
+            "capture_times": [
+              48,
+              89,
+              110
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 90.0,
+            "total_steps": 145,
+            "capture_times": [
+              51,
+              75,
+              144
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 107.0,
+            "total_steps": 144,
+            "capture_times": [
+              66,
+              112,
+              143
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 69.66666666666667,
+            "total_steps": 88,
+            "capture_times": [
+              49,
+              73,
+              87
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 87.33333333333333,
+            "total_steps": 128,
+            "capture_times": [
+              50,
+              85,
+              127
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 77.66666666666667,
+            "total_steps": 106,
+            "capture_times": [
+              47,
+              81,
+              105
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 84.33333333333333,
+            "total_steps": 112,
+            "capture_times": [
+              54,
+              88,
+              111
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 67.66666666666667,
+            "total_steps": 107,
+            "capture_times": [
+              46,
+              51,
+              106
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 75.33333333333333,
+            "total_steps": 114,
+            "capture_times": [
+              54,
+              59,
+              113
+            ]
+          }
+        ]
+      },
+      "PSO": {
+        "config": {
+          "scenario": "open_field",
+          "evader_type": "PSO",
+          "n_obstacles": 0
+        },
+        "aggregate": {
+          "n_runs": 30,
+          "capture_rate_mean": 1.0,
+          "capture_rate_std": 0.0,
+          "survival_mean": 48.70000000000001,
+          "survival_std": 4.076445437805761,
+          "survival_min": 41.333333333333336,
+          "survival_max": 56.666666666666664
+        },
+        "raw": [
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 50.333333333333336,
+            "total_steps": 500,
+            "capture_times": [
+              47,
+              51,
+              53
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 45.0,
+            "total_steps": 49,
+            "capture_times": [
+              42,
+              45,
+              48
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 43.666666666666664,
+            "total_steps": 48,
+            "capture_times": [
+              42,
+              42,
+              47
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 47.0,
+            "total_steps": 54,
+            "capture_times": [
+              43,
+              45,
+              53
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 41.333333333333336,
+            "total_steps": 43,
+            "capture_times": [
+              40,
+              42,
+              42
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 44.666666666666664,
+            "total_steps": 47,
+            "capture_times": [
+              43,
+              45,
+              46
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 43.333333333333336,
+            "total_steps": 46,
+            "capture_times": [
+              42,
+              43,
+              45
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 45.333333333333336,
+            "total_steps": 51,
+            "capture_times": [
+              41,
+              45,
+              50
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 48.666666666666664,
+            "total_steps": 52,
+            "capture_times": [
+              46,
+              49,
+              51
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 51.666666666666664,
+            "total_steps": 56,
+            "capture_times": [
+              47,
+              53,
+              55
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 53.666666666666664,
+            "total_steps": 62,
+            "capture_times": [
+              45,
+              55,
+              61
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 47.666666666666664,
+            "total_steps": 53,
+            "capture_times": [
+              42,
+              49,
+              52
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 41.666666666666664,
+            "total_steps": 46,
+            "capture_times": [
+              39,
+              41,
+              45
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 49.0,
+            "total_steps": 56,
+            "capture_times": [
+              45,
+              47,
+              55
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 50.0,
+            "total_steps": 56,
+            "capture_times": [
+              47,
+              48,
+              55
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 50.666666666666664,
+            "total_steps": 59,
+            "capture_times": [
+              45,
+              49,
+              58
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 44.666666666666664,
+            "total_steps": 50,
+            "capture_times": [
+              41,
+              44,
+              49
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 50.0,
+            "total_steps": 53,
+            "capture_times": [
+              47,
+              51,
+              52
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 53.666666666666664,
+            "total_steps": 59,
+            "capture_times": [
+              48,
+              55,
+              58
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 47.0,
+            "total_steps": 51,
+            "capture_times": [
+              45,
+              46,
+              50
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 46.666666666666664,
+            "total_steps": 54,
+            "capture_times": [
+              42,
+              45,
+              53
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 56.666666666666664,
+            "total_steps": 65,
+            "capture_times": [
+              51,
+              55,
+              64
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 50.666666666666664,
+            "total_steps": 55,
+            "capture_times": [
+              46,
+              52,
+              54
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 55.333333333333336,
+            "total_steps": 58,
+            "capture_times": [
+              54,
+              55,
+              57
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 53.666666666666664,
+            "total_steps": 59,
+            "capture_times": [
+              48,
+              55,
+              58
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 46.333333333333336,
+            "total_steps": 52,
+            "capture_times": [
+              41,
+              47,
+              51
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 49.333333333333336,
+            "total_steps": 55,
+            "capture_times": [
+              44,
+              50,
+              54
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 45.666666666666664,
+            "total_steps": 51,
+            "capture_times": [
+              42,
+              45,
+              50
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 53.666666666666664,
+            "total_steps": 60,
+            "capture_times": [
+              50,
+              52,
+              59
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 54.0,
+            "total_steps": 65,
+            "capture_times": [
+              48,
+              50,
+              64
+            ]
+          }
+        ]
+      }
+    },
+    "sparse_obstacles": {
+      "ACO": {
+        "config": {
+          "scenario": "sparse_obstacles",
+          "evader_type": "ACO",
+          "n_obstacles": 4
+        },
+        "aggregate": {
+          "n_runs": 30,
+          "capture_rate_mean": 0.5888888888888888,
+          "capture_rate_std": 0.3408413700039548,
+          "survival_mean": 138.4722222222222,
+          "survival_std": 162.10196884205058,
+          "survival_min": 49.0,
+          "survival_max": 500.0
+        },
+        "raw": [
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 69.33333333333333,
+            "total_steps": 500,
+            "capture_times": [
+              44,
+              56,
+              108
+            ]
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 83.5,
+            "total_steps": 500,
+            "capture_times": [
+              75,
+              92
+            ]
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 78.0,
+            "total_steps": 500,
+            "capture_times": [
+              63,
+              93
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 68.0,
+            "total_steps": 94,
+            "capture_times": [
+              54,
+              57,
+              93
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 60.0,
+            "total_steps": 88,
+            "capture_times": [
+              45,
+              48,
+              87
+            ]
+          },
+          {
+            "capture_rate": 0.3333333333333333,
+            "n_captured": 1,
+            "n_evaders": 3,
+            "avg_survival_time": 49.0,
+            "total_steps": 500,
+            "capture_times": [
+              49
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 62.666666666666664,
+            "total_steps": 92,
+            "capture_times": [
+              48,
+              49,
+              91
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 86.33333333333333,
+            "total_steps": 122,
+            "capture_times": [
+              53,
+              85,
+              121
+            ]
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 68.5,
+            "total_steps": 500,
+            "capture_times": [
+              49,
+              88
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 92.66666666666667,
+            "total_steps": 118,
+            "capture_times": [
+              69,
+              92,
+              117
+            ]
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 56.5,
+            "total_steps": 500,
+            "capture_times": [
+              48,
+              65
+            ]
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 58.5,
+            "total_steps": 500,
+            "capture_times": [
+              45,
+              72
+            ]
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 62.0,
+            "total_steps": 500,
+            "capture_times": [
+              59,
+              65
+            ]
+          },
+          {
+            "capture_rate": 0.3333333333333333,
+            "n_captured": 1,
+            "n_evaders": 3,
+            "avg_survival_time": 51.0,
+            "total_steps": 500,
+            "capture_times": [
+              51
+            ]
+          },
+          {
+            "capture_rate": 0.3333333333333333,
+            "n_captured": 1,
+            "n_evaders": 3,
+            "avg_survival_time": 50.0,
+            "total_steps": 500,
+            "capture_times": [
+              50
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 59.5,
+            "total_steps": 500,
+            "capture_times": [
+              56,
+              63
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 61.0,
+            "total_steps": 74,
+            "capture_times": [
+              50,
+              60,
+              73
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 83.66666666666667,
+            "total_steps": 110,
+            "capture_times": [
+              63,
+              79,
+              109
+            ]
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 86.5,
+            "total_steps": 500,
+            "capture_times": [
+              72,
+              101
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 73.5,
+            "total_steps": 500,
+            "capture_times": [
+              54,
+              93
+            ]
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 50.5,
+            "total_steps": 500,
+            "capture_times": [
+              47,
+              54
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 68.0,
+            "total_steps": 500,
+            "capture_times": [
+              67,
+              69
+            ]
+          },
+          {
+            "capture_rate": 0.3333333333333333,
+            "n_captured": 1,
+            "n_evaders": 3,
+            "avg_survival_time": 52.0,
+            "total_steps": 500,
+            "capture_times": [
+              52
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 71.5,
+            "total_steps": 500,
+            "capture_times": [
+              54,
+              89
+            ]
+          },
+          {
+            "capture_rate": 0.3333333333333333,
+            "n_captured": 1,
+            "n_evaders": 3,
+            "avg_survival_time": 52.0,
+            "total_steps": 500,
+            "capture_times": [
+              52
+            ]
+          }
+        ]
+      },
+      "PSO": {
+        "config": {
+          "scenario": "sparse_obstacles",
+          "evader_type": "PSO",
+          "n_obstacles": 4
+        },
+        "aggregate": {
+          "n_runs": 30,
+          "capture_rate_mean": 1.0,
+          "capture_rate_std": 0.0,
+          "survival_mean": 53.933333333333316,
+          "survival_std": 4.417473720813072,
+          "survival_min": 45.666666666666664,
+          "survival_max": 67.66666666666667
+        },
+        "raw": [
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 51.0,
+            "total_steps": 500,
+            "capture_times": [
+              49,
+              52,
+              52
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 57.0,
+            "total_steps": 67,
+            "capture_times": [
+              49,
+              56,
+              66
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 54.0,
+            "total_steps": 57,
+            "capture_times": [
+              51,
+              55,
+              56
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 58.333333333333336,
+            "total_steps": 66,
+            "capture_times": [
+              54,
+              56,
+              65
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 47.333333333333336,
+            "total_steps": 50,
+            "capture_times": [
+              45,
+              48,
+              49
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 45.666666666666664,
+            "total_steps": 49,
+            "capture_times": [
+              43,
+              46,
+              48
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 57.333333333333336,
+            "total_steps": 59,
+            "capture_times": [
+              56,
+              58,
+              58
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 57.0,
+            "total_steps": 58,
+            "capture_times": [
+              57,
+              57,
+              57
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 53.333333333333336,
+            "total_steps": 56,
+            "capture_times": [
+              52,
+              53,
+              55
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 49.666666666666664,
+            "total_steps": 54,
+            "capture_times": [
+              47,
+              49,
+              53
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 50.666666666666664,
+            "total_steps": 54,
+            "capture_times": [
+              48,
+              51,
+              53
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 54.333333333333336,
+            "total_steps": 60,
+            "capture_times": [
+              52,
+              52,
+              59
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 67.66666666666667,
+            "total_steps": 80,
+            "capture_times": [
+              61,
+              63,
+              79
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 51.333333333333336,
+            "total_steps": 54,
+            "capture_times": [
+              48,
+              53,
+              53
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 52.333333333333336,
+            "total_steps": 55,
+            "capture_times": [
+              50,
+              53,
+              54
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 56.0,
+            "total_steps": 58,
+            "capture_times": [
+              55,
+              56,
+              57
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 50.666666666666664,
+            "total_steps": 54,
+            "capture_times": [
+              49,
+              50,
+              53
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 57.666666666666664,
+            "total_steps": 67,
+            "capture_times": [
+              52,
+              55,
+              66
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 47.666666666666664,
+            "total_steps": 56,
+            "capture_times": [
+              36,
+              52,
+              55
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 52.333333333333336,
+            "total_steps": 55,
+            "capture_times": [
+              50,
+              53,
+              54
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 54.333333333333336,
+            "total_steps": 60,
+            "capture_times": [
+              51,
+              53,
+              59
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 53.333333333333336,
+            "total_steps": 61,
+            "capture_times": [
+              44,
+              56,
+              60
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 51.333333333333336,
+            "total_steps": 54,
+            "capture_times": [
+              50,
+              51,
+              53
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 56.333333333333336,
+            "total_steps": 64,
+            "capture_times": [
+              52,
+              54,
+              63
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 59.333333333333336,
+            "total_steps": 68,
+            "capture_times": [
+              54,
+              57,
+              67
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 59.0,
+            "total_steps": 65,
+            "capture_times": [
+              55,
+              58,
+              64
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 50.333333333333336,
+            "total_steps": 54,
+            "capture_times": [
+              48,
+              50,
+              53
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 49.333333333333336,
+            "total_steps": 55,
+            "capture_times": [
+              45,
+              49,
+              54
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 56.333333333333336,
+            "total_steps": 61,
+            "capture_times": [
+              54,
+              55,
+              60
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 57.0,
+            "total_steps": 63,
+            "capture_times": [
+              54,
+              55,
+              62
+            ]
+          }
+        ]
+      }
+    },
+    "dense_maze": {
+      "ACO": {
+        "config": {
+          "scenario": "dense_maze",
+          "evader_type": "ACO",
+          "n_obstacles": 11
+        },
+        "aggregate": {
+          "n_runs": 30,
+          "capture_rate_mean": 0.13333333333333333,
+          "capture_rate_std": 0.28021156028707767,
+          "survival_mean": 405.8055555555556,
+          "survival_std": 172.5445518599275,
+          "survival_min": 45.0,
+          "survival_max": 500.0
+        },
+        "raw": [
+          {
+            "capture_rate": 0.3333333333333333,
+            "n_captured": 1,
+            "n_evaders": 3,
+            "avg_survival_time": 169.0,
+            "total_steps": 500,
+            "capture_times": [
+              169
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 174.33333333333334,
+            "total_steps": 191,
+            "capture_times": [
+              157,
+              176,
+              190
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.3333333333333333,
+            "n_captured": 1,
+            "n_evaders": 3,
+            "avg_survival_time": 51.0,
+            "total_steps": 500,
+            "capture_times": [
+              51
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 106.33333333333333,
+            "total_steps": 198,
+            "capture_times": [
+              53,
+              69,
+              197
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 77.5,
+            "total_steps": 500,
+            "capture_times": [
+              68,
+              87
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.3333333333333333,
+            "n_captured": 1,
+            "n_evaders": 3,
+            "avg_survival_time": 51.0,
+            "total_steps": 500,
+            "capture_times": [
+              51
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.3333333333333333,
+            "n_captured": 1,
+            "n_evaders": 3,
+            "avg_survival_time": 45.0,
+            "total_steps": 500,
+            "capture_times": [
+              45
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          }
+        ]
+      },
+      "PSO": {
+        "config": {
+          "scenario": "dense_maze",
+          "evader_type": "PSO",
+          "n_obstacles": 11
+        },
+        "aggregate": {
+          "n_runs": 30,
+          "capture_rate_mean": 0.4888888888888889,
+          "capture_rate_std": 0.49241155124800745,
+          "survival_mean": 281.4166666666667,
+          "survival_std": 218.95456466785268,
+          "survival_min": 43.666666666666664,
+          "survival_max": 500.0
+        },
+        "raw": [
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.6666666666666666,
+            "n_captured": 2,
+            "n_evaders": 3,
+            "avg_survival_time": 61.5,
+            "total_steps": 500,
+            "capture_times": [
+              60,
+              63
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 51.333333333333336,
+            "total_steps": 54,
+            "capture_times": [
+              50,
+              51,
+              53
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 59.333333333333336,
+            "total_steps": 65,
+            "capture_times": [
+              51,
+              63,
+              64
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 49.333333333333336,
+            "total_steps": 52,
+            "capture_times": [
+              48,
+              49,
+              51
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 66.33333333333333,
+            "total_steps": 74,
+            "capture_times": [
+              59,
+              67,
+              73
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 71.33333333333333,
+            "total_steps": 80,
+            "capture_times": [
+              63,
+              72,
+              79
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 58.0,
+            "total_steps": 61,
+            "capture_times": [
+              56,
+              58,
+              60
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 63.666666666666664,
+            "total_steps": 67,
+            "capture_times": [
+              60,
+              65,
+              66
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 43.666666666666664,
+            "total_steps": 49,
+            "capture_times": [
+              41,
+              42,
+              48
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 69.66666666666667,
+            "total_steps": 78,
+            "capture_times": [
+              63,
+              69,
+              77
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 55.666666666666664,
+            "total_steps": 70,
+            "capture_times": [
+              48,
+              50,
+              69
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 54.0,
+            "total_steps": 57,
+            "capture_times": [
+              51,
+              55,
+              56
+            ]
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 124.66666666666667,
+            "total_steps": 231,
+            "capture_times": [
+              57,
+              87,
+              230
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 56.333333333333336,
+            "total_steps": 58,
+            "capture_times": [
+              55,
+              57,
+              57
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          },
+          {
+            "capture_rate": 1.0,
+            "n_captured": 3,
+            "n_evaders": 3,
+            "avg_survival_time": 57.666666666666664,
+            "total_steps": 62,
+            "capture_times": [
+              53,
+              59,
+              61
+            ]
+          },
+          {
+            "capture_rate": 0.0,
+            "n_captured": 0,
+            "n_evaders": 3,
+            "avg_survival_time": 500,
+            "total_steps": 500,
+            "capture_times": []
+          }
+        ]
+      }
+    }
+  },
+  "comparison_aco_vs_pso": {
+    "open_field": {
+      "capture_rate": {
+        "metric": "capture_rate",
+        "U_statistic": 330.0,
+        "p_value": 0.002749069255130806,
+        "significant": true
+      },
+      "avg_survival_time": {
+        "metric": "avg_survival_time",
+        "U_statistic": 899.0,
+        "p_value": 3.2356750777637764e-11,
+        "significant": true
+      }
+    },
+    "sparse_obstacles": {
+      "capture_rate": {
+        "metric": "capture_rate",
+        "U_statistic": 120.0,
+        "p_value": 1.391421340211178e-08,
+        "significant": true
+      },
+      "avg_survival_time": {
+        "metric": "avg_survival_time",
+        "U_statistic": 747.5,
+        "p_value": 1.1180287681644174e-05,
+        "significant": true
+      }
+    },
+    "dense_maze": {
+      "capture_rate": {
+        "metric": "capture_rate",
+        "U_statistic": 294.0,
+        "p_value": 0.007006394205118993,
+        "significant": true
+      },
+      "avg_survival_time": {
+        "metric": "avg_survival_time",
+        "U_statistic": 580.5,
+        "p_value": 0.02606866402756154,
+        "significant": true
+      }
+    }
+  },
+  "comparison_across_scenarios": {
+    "ACO": {
+      "open_field_vs_sparse_obstacles": {
+        "capture_rate": {
+          "metric": "capture_rate",
+          "U_statistic": 619.0,
+          "p_value": 0.007083391297703758,
+          "significant": true
+        },
+        "avg_survival_time": {
+          "metric": "avg_survival_time",
+          "U_statistic": 634.5,
+          "p_value": 0.006353555308713602,
+          "significant": true
+        }
+      },
+      "open_field_vs_dense_maze": {
+        "capture_rate": {
+          "metric": "capture_rate",
+          "U_statistic": 762.0,
+          "p_value": 3.838405303719997e-07,
+          "significant": true
+        },
+        "avg_survival_time": {
+          "metric": "avg_survival_time",
+          "U_statistic": 197.0,
+          "p_value": 7.388136190070719e-05,
+          "significant": true
+        }
+      },
+      "sparse_obstacles_vs_dense_maze": {
+        "capture_rate": {
+          "metric": "capture_rate",
+          "U_statistic": 744.5,
+          "p_value": 3.615237864762116e-06,
+          "significant": true
+        },
+        "avg_survival_time": {
+          "metric": "avg_survival_time",
+          "U_statistic": 166.5,
+          "p_value": 1.0125591222017807e-05,
+          "significant": true
+        }
+      }
+    },
+    "PSO": {
+      "open_field_vs_sparse_obstacles": {
+        "capture_rate": {
+          "metric": "capture_rate",
+          "U_statistic": 450.0,
+          "p_value": 1.0,
+          "significant": false
+        },
+        "avg_survival_time": {
+          "metric": "avg_survival_time",
+          "U_statistic": 171.5,
+          "p_value": 3.919327031360804e-05,
+          "significant": true
+        }
+      },
+      "open_field_vs_dense_maze": {
+        "capture_rate": {
+          "metric": "capture_rate",
+          "U_statistic": 690.0,
+          "p_value": 4.04260909509971e-06,
+          "significant": true
+        },
+        "avg_survival_time": {
+          "metric": "avg_survival_time",
+          "U_statistic": 52.5,
+          "p_value": 3.277865643132842e-09,
+          "significant": true
+        }
+      },
+      "sparse_obstacles_vs_dense_maze": {
+        "capture_rate": {
+          "metric": "capture_rate",
+          "U_statistic": 690.0,
+          "p_value": 4.04260909509971e-06,
+          "significant": true
+        },
+        "avg_survival_time": {
+          "metric": "avg_survival_time",
+          "U_statistic": 126.0,
+          "p_value": 1.4228833006751943e-06,
+          "significant": true
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 80.93868923187256
+}
