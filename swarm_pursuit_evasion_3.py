@@ -1,3 +1,13 @@
+"""
+The Hunters and the Hive: Pursuit-Evasion Swarm Intelligence Simulation
+Group 7 – Tejas Dalvi & Ravi Moelchand
+
+This module implements competing swarms in a 2D environment:
+- PSO-driven pursuers
+- ACO or PSO-driven evaders
+- Configurable obstacles and environment complexity
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
@@ -10,6 +20,7 @@ from datetime import datetime
 
 @dataclass
 class SimulationConfig:
+    """Configuration parameters for the simulation"""
     # Environment
     world_size: Tuple[int, int] = (100, 100)
     dt: float = 0.5  # Time step
@@ -36,7 +47,7 @@ class SimulationConfig:
     aco_pheromone_deposit: float = 10.0
     aco_danger_weight: float = 2.0
 
-    # PSO evader parameters 
+    # PSO evader parameters (if using PSO evaders)
     evader_inertia: float = 0.6
     evader_cognitive: float = 1.2
     evader_social: float = 1.8
@@ -46,6 +57,7 @@ class SimulationConfig:
 
 
 class Agent:
+    """Base class for swarm agents"""
 
     def __init__(self, position: np.ndarray, max_speed: float, world_size: Tuple[int, int]):
         self.position = position.astype(float)
@@ -55,9 +67,11 @@ class Agent:
         self.captured = False
 
     def apply_boundary(self):
+        """Keep agents within world boundaries"""
         self.position = np.clip(self.position, 0, self.world_size)
 
     def limit_speed(self):
+        """Limit velocity to maximum speed"""
         speed = np.linalg.norm(self.velocity)
         if speed > self.max_speed:
             self.velocity = (self.velocity / speed) * self.max_speed
@@ -75,10 +89,11 @@ class Agent:
                 }
                 nearest = min(edges.values(), key=lambda x: x[0])
                 self.position = nearest[1]
-                self.velocity *= 0.1  
+                self.velocity *= 0.1  # kill momentum
 
 
 class Pursuer(Agent):
+    """PSO-based pursuer agent"""
 
     def __init__(self, position: np.ndarray, config: SimulationConfig):
         super().__init__(position, config.pursuer_max_speed, config.world_size)
@@ -91,9 +106,10 @@ class Pursuer(Agent):
         # PSO memory
         self.personal_best_pos = position.copy()
         self.personal_best_distance = float('inf')
-        self.target_evader_ref = None  
+        self.target_evader_ref = None  # Track which evader we're targeting
 
     def invalidate_if_target_captured(self):
+        """Reset personal best if the tracked target evader was captured"""
         if self.target_evader_ref is not None and self.target_evader_ref.captured:
             # Target was captured - reset memory to avoid sticking to that location
             self.personal_best_pos = self.position.copy()
@@ -102,6 +118,7 @@ class Pursuer(Agent):
 
     def update(self, evaders: List['Evader'], pursuers: List['Pursuer'], obstacles: List):
         """Update pursuer using PSO"""
+        # Invalidate target if it was captured
         self.invalidate_if_target_captured()
         
         if len(evaders) == 0:
@@ -128,7 +145,7 @@ class Pursuer(Agent):
             self.personal_best_distance = min_dist
             self.personal_best_pos = nearest_evader.position.copy()
 
-        # Find global best among nearby pursuers 
+        # Find global best among nearby pursuers (only if their targets are still alive)
         global_best_pos = self.personal_best_pos.copy()
         global_best_dist = self.personal_best_distance
 
@@ -171,6 +188,7 @@ class Pursuer(Agent):
             # Check if agent is near obstacle
             if (ox - 5 < self.position[0] < ox + ow + 5 and
                     oy - 5 < self.position[1] < oy + oh + 5):
+                # Calculate repulsion from obstacle center
                 obs_center = np.array([ox + ow / 2, oy + oh / 2])
                 diff = self.position - obs_center
                 dist = np.linalg.norm(diff)
@@ -181,6 +199,7 @@ class Pursuer(Agent):
 
 
 class PSOEvader(Agent):
+    """PSO-based evader agent (flees from pursuers)"""
 
     def __init__(self, position: np.ndarray, config: SimulationConfig):
         super().__init__(position, config.evader_max_speed, config.world_size)
@@ -194,7 +213,7 @@ class PSOEvader(Agent):
         self.personal_best_distance = 0.0
 
     def update(self, pursuers: List[Pursuer], evaders: List['Evader'], obstacles: List):
-        """(inverse - maximize distance)"""
+        """Update evader using PSO (inverse - maximize distance)"""
         if self.captured:
             return
 
@@ -254,6 +273,7 @@ class PSOEvader(Agent):
         self.apply_boundary()
 
     def avoid_obstacles(self, obstacles: List):
+        """Simple obstacle avoidance"""
         if not obstacles:
             return
 
@@ -272,6 +292,7 @@ class PSOEvader(Agent):
 
 
 class ACOEvader(Agent):
+    """ACO-based evader agent using repulsive pheromones"""
 
     def __init__(self, position: np.ndarray, config: SimulationConfig, pheromone_grid):
         super().__init__(position, config.evader_max_speed, config.world_size)
@@ -288,15 +309,17 @@ class ACOEvader(Agent):
         self.obstacle_density = 0.0  # Updated dynamically during simulation
         
         # ACO heuristic parameters
-        self.alpha = 1.0  # Pheromone influence 
+        self.alpha = 1.0  # Pheromone influence (lower pheromone = better for evasion)
         self.beta = 2.0   # Heuristic influence (distance from pursuers)
 
     def get_dynamic_radius(self):
+        """Dynamic radius based on map size and obstacle density - Eq. (6)"""
         a, b = self.world_size
         r = max(self.r_min, (1 / self.epsilon) * np.sqrt(a**2 + b**2) * (1 - self.k_scale * self.obstacle_density))
         return r
 
     def get_wide_area_candidates(self, obstacles, n_samples=8):
+        """Sample candidate positions within dynamic search radius"""
         r = self.get_dynamic_radius()
         candidates = []
         attempts = 0
@@ -311,12 +334,14 @@ class ACOEvader(Agent):
         return candidates
 
     def evasion_heuristic(self, candidate_pos: np.ndarray, pursuers: List[Pursuer]) -> float:
+        """Distance-based heuristic — farther from nearest pursuer is better"""
         if len(pursuers) == 0:
             return 0.0
         min_dist = min(np.linalg.norm(candidate_pos - p.position) for p in pursuers)
         return min_dist  # Higher is better for evaders
 
     def select_next_position(self, candidates: List[np.ndarray], pursuers: List[Pursuer]) -> np.ndarray:
+        """ACO-based position selection using pheromone and heuristic"""
         weights = []
         for pos in candidates:
             # Get pheromone level at candidate position
@@ -328,12 +353,13 @@ class ACOEvader(Agent):
             heuristic = self.evasion_heuristic(pos, pursuers)
             
             # ACO formula: inverse for evasion (low pheromone + high distance = good)
+            # weight = heuristic^beta / pheromone^alpha
             weight = (heuristic ** self.beta) / (pheromone ** self.alpha)
             weights.append(weight)
         
         # Convert weights to probabilities
         weights = np.array(weights)
-        weights = np.maximum(weights, 1e-6)  
+        weights = np.maximum(weights, 1e-6)  # Ensure no zero weights
         probs = weights / weights.sum()
         
         # Probabilistically select a candidate
@@ -341,6 +367,7 @@ class ACOEvader(Agent):
         return candidates[idx]
     
     def deposit_pheromone_with_diffusion(self, grid_x, grid_y, amount):
+        """Deposit pheromone with topological diffusion to neighbours (Liu et al., 2025, Eq. 15)"""
         for dx in range(-2, 3):
             for dy in range(-2, 3):
                 nx = int(np.clip(grid_x + dx, 0, self.pheromone_grid.shape[0]-1))
@@ -359,6 +386,7 @@ class ACOEvader(Agent):
                 # Beyond distance 2: no diffusion
 
     def update(self, pursuers: List[Pursuer], evaders: List['ACOEvader'], obstacles: List):
+        """Update evader using ACO principles"""
         if self.captured:
             return
 
@@ -409,6 +437,7 @@ class ACOEvader(Agent):
         self.apply_boundary()
 
     def is_in_obstacle(self, pos: np.ndarray, obstacles: List) -> bool:
+        """Check if position is inside an obstacle"""
         if not obstacles:
             return False
         for obs in obstacles:
@@ -419,6 +448,7 @@ class ACOEvader(Agent):
 
 
 class SwarmSimulation:
+    """Main simulation environment"""
 
     def __init__(self, config: SimulationConfig):
         self.config = config
@@ -456,6 +486,7 @@ class SwarmSimulation:
                 self.evaders.append(PSOEvader(pos, config))
 
     def step(self):
+        """Execute one simulation step"""
         # Update pursuers
         for pursuer in self.pursuers:
             pursuer.update(self.evaders, self.pursuers, self.obstacles)
@@ -481,6 +512,7 @@ class SwarmSimulation:
         self.step_count += 1
 
     def run(self, visualize: bool = True):
+        """Run the simulation"""
         if visualize:
             self.run_with_visualization()
         else:
@@ -492,6 +524,7 @@ class SwarmSimulation:
         return self.get_metrics()
 
     def get_metrics(self):
+        """Calculate simulation metrics"""
         n_captured = sum(1 for e in self.evaders if e.captured)
         capture_rate = n_captured / len(self.evaders)
         avg_survival_time = np.mean(self.capture_times) if self.capture_times else self.config.max_steps
@@ -506,6 +539,7 @@ class SwarmSimulation:
         }
 
     def run_with_visualization(self):
+        """Run simulation with animated visualization"""
         fig, ax = plt.subplots(figsize=(10, 10))
 
         def init():
@@ -582,6 +616,7 @@ class SwarmSimulation:
 
 
 def create_scenario(scenario_type: str) -> SimulationConfig:
+    """Create predefined scenario configurations"""
     config = SimulationConfig()
 
     if scenario_type == "open_field":
@@ -614,6 +649,7 @@ def create_scenario(scenario_type: str) -> SimulationConfig:
 
 
 def run_experiment(scenario: str, evader_type: str, n_runs: int = 5, visualize_first: bool = True):
+    """Run multiple trials and collect statistics"""
     results = []
 
     for i in range(n_runs):
@@ -644,6 +680,9 @@ def run_experiment(scenario: str, evader_type: str, n_runs: int = 5, visualize_f
 
 
 if __name__ == "__main__":
+    print("The Hunters and the Hive - Swarm Pursuit-Evasion Simulation")
+    print("=" * 60)
+
     # Demo: Run one visualization for each scenario and evader type
     print("\n1. Open Field - ACO Evaders")
     config = create_scenario("open_field")
@@ -657,8 +696,17 @@ if __name__ == "__main__":
     sim = SwarmSimulation(config)
     sim.run(visualize=True)
 
+    # Uncomment to run full experiments
+    # run_experiment("open_field", "ACO", n_runs=10, visualize_first=False)
+    # run_experiment("sparse_obstacles", "ACO", n_runs=10, visualize_first=False)
+    # run_experiment("dense_maze", "ACO", n_runs=10, visualize_first=False)
 
 def run_and_snapshot(sim: SwarmSimulation, snapshot_step: int = 60, filename: str = "snapshot.png") -> None:
+    """Run *sim* up to *snapshot_step*, save a PNG, then return.
+
+    The simulation is NOT reset or completed — the caller can continue
+    stepping or call sim.get_metrics() afterwards.
+    """
     import matplotlib.pyplot as plt
     import matplotlib.patches as patches
 

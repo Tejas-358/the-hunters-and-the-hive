@@ -1,3 +1,16 @@
+"""
+The Hunters and the Hive – Planned Experiments
+Group 7: Tejas Dalvi & Ravi Moelchand
+
+Implements all three planned experiments from the draft report:
+  Experiment 1 – Parameter Sensitivity Analysis (open field)
+  Experiment 2 – Environmental Complexity (open/sparse/dense × ACO/PSO)
+  Experiment 3 – Scalability Analysis (pursuer-to-evader ratios)
+
+Results are saved to JSON and summary statistics are printed.
+Statistical comparisons use the Mann-Whitney U test (α = 0.05).
+"""
+
 import json
 import time
 import itertools
@@ -10,14 +23,18 @@ from scipy import stats
 
 from swarm_pursuit_evasion_3 import SimulationConfig, SwarmSimulation, create_scenario, run_and_snapshot
 
+# ──────────────────────────────────────────────
+# Helpers
+# ──────────────────────────────────────────────
 
 RESULTS_DIR   = Path("experiment_results")
 SNAPSHOTS_DIR = Path("experiment_results/snapshots")
 RESULTS_DIR.mkdir(exist_ok=True)
 SNAPSHOTS_DIR.mkdir(exist_ok=True)
 
-N_RUNS         = 30   # repetitions per configuration 
+N_RUNS         = 30                     # repetitions per configuration (as specified in the paper)
 SNAPSHOT_STEPS  = [30, 100, 250, 450]   # simulation steps at which to capture snapshots
+BASE_SEED       = 42                    # base random seed for reproducibility; each run adds +1
 
 
 def run_batch(
@@ -26,14 +43,21 @@ def run_batch(
     label: str = "",
     snapshot_label: str = "",
 ) -> list[dict]:
+    """Run *n_runs* replications of a configuration and return list of metric dicts.
 
+    For the first run only a snapshot is saved at SNAPSHOT_STEPS[0] = 100.
+    *snapshot_label* is used to build the filename; if empty the generic
+    *label* is sanitised and used instead.
+    """
     results = []
     for i in range(n_runs):
+        seed = BASE_SEED + i               # Different seed for each run
+        np.random.seed(seed)               # Seed for reproducibility
         sim = SwarmSimulation(config)
 
         if i == 0:
+            # For the first run, capture snapshots at specified steps
             slug = (snapshot_label or label).replace(" ", "_").replace("/", "-").replace("=", "")
-            sim = SwarmSimulation(config)
 
             for snap_step in SNAPSHOT_STEPS:
                 filename = SNAPSHOTS_DIR / f"snapshot_{slug}_step{snap_step}.png"
@@ -42,28 +66,51 @@ def run_batch(
 
             while sim.step_count < config.max_steps:
                 sim.step()
-            metrics = sim.get_metrics()
-        else:
-            metrics = sim.run(visualize=False)
+                if all(e.captured for e in sim.evaders):
+                    break
+        else: 
+            # For subsequent runs, just run to completion without snapshots
+            while sim.step_count < config.max_steps:
+                sim.step()
+                if all(e.captured for e in sim.evaders):
+                    break
+
+        metrics = sim.get_metrics()     # compute metrics
+
+        metrics["seed"] = seed          # include seed in results for traceability
 
         results.append(metrics)
-        print(f"  [{label}] run {i + 1:02d}/{n_runs}  "
-              f"capture={metrics['capture_rate']:.2%}  "
-              f"survival={metrics['avg_survival_time']:.1f}")
+
+        print(
+            f"  [{label}] run {i + 1:02d}/{n_runs}  "
+            f"seed={seed}  "
+            f"capture={metrics['capture_rate']:.2%}  "
+            f"survival={metrics['avg_survival_time']:.1f}"
+        )
+
+        # results.append(metrics)
+        # print(f"  [{label}] run {i + 1:02d}/{n_runs}  "
+        #       f"capture={metrics['capture_rate']:.2%}  "
+        #       f"survival={metrics['avg_survival_time']:.1f}")
     return results
 
 
 def aggregate(results: list[dict]) -> dict:
-    capture_rates   = [r["capture_rate"]      for r in results]
-    survival_times  = [r["avg_survival_time"]  for r in results]
+    def stats_for(key):
+        vals = [r[key] for r in results]
+        return {
+            "mean": float(np.mean(vals)),
+            "std":  float(np.std(vals)),
+            "min":  float(np.min(vals)),
+            "max":  float(np.max(vals)),
+        }
+
     return {
-        "n_runs":             len(results),
-        "capture_rate_mean":  float(np.mean(capture_rates)),
-        "capture_rate_std":   float(np.std(capture_rates)),
-        "survival_mean":      float(np.mean(survival_times)),
-        "survival_std":       float(np.std(survival_times)),
-        "survival_min":       float(np.min(survival_times)),
-        "survival_max":       float(np.max(survival_times)),
+        "capture_rate":          stats_for("capture_rate"),
+        "avg_survival_time":     stats_for("avg_survival_time"),
+        "total_steps": stats_for("total_steps"),
+        # "time_to_first_capture": stats_for("time_to_first_capture"),
+        # "time_to_completion":    stats_for("time_to_completion"),
     }
 
 
@@ -94,12 +141,14 @@ def print_header(title: str) -> None:
 
 def print_summary(label: str, agg: dict) -> None:
     print(f"  {label}")
-    print(f"    Capture rate : {agg['capture_rate_mean']:.3f} ± {agg['capture_rate_std']:.3f}")
-    print(f"    Survival time: {agg['survival_mean']:.1f} ± {agg['survival_std']:.1f}  "
-          f"[{agg['survival_min']:.0f} – {agg['survival_max']:.0f}]")
+    print(f"    Capture rate : {agg['capture_rate']['mean']:.3f} ± {agg['capture_rate']['std']:.3f}")
+    print(f"    Survival time: {agg['avg_survival_time']['mean']:.1f} ± {agg['avg_survival_time']['std']:.1f}  "
+          f"[{agg['avg_survival_time']['min']:.0f} – {agg['avg_survival_time']['max']:.0f}]")
 
 
+# ──────────────────────────────────────────────
 # Experiment 1 – Parameter Sensitivity Analysis
+# ──────────────────────────────────────────────
 
 def experiment1_parameter_sensitivity():
     """
@@ -108,13 +157,15 @@ def experiment1_parameter_sensitivity():
       • Inertia      : 0.4, 0.6, 0.8  (pursuer PSO inertia)
       • Sensing radius: 20, 30, 50 units (pursuer sensing)
 
+    Each variable is swept in isolation; the remaining parameters keep
+    their default values from the paper's appendix.
     """
     print_header("Experiment 1 – Parameter Sensitivity Analysis")
     t0 = time.time()
 
     output = {"experiment": "parameter_sensitivity", "timestamp": datetime.now().isoformat()}
 
-    #  1A  Swarm size 
+    # ── 1A  Swarm size ──────────────────────────────────────────────
     print("\n[1A] Swarm size sweep (n_pursuers = n_evaders ∈ {3, 5, 10})")
     swarm_sizes = [3, 5, 10]
     size_results = {}
@@ -156,7 +207,7 @@ def experiment1_parameter_sensitivity():
             agg = size_results[evader_type][str(n)]["aggregate"]
             print_summary(f"n={n}, {evader_type}", agg)
 
-    #  1B  Inertia weight 
+    # ── 1B  Inertia weight ──────────────────────────────────────────
     print("\n[1B] Inertia weight sweep (ω ∈ {0.4, 0.6, 0.8})")
     inertia_values = [0.4, 0.6, 0.8]
     inertia_results = {}
@@ -196,7 +247,7 @@ def experiment1_parameter_sensitivity():
             agg = inertia_results[evader_type][str(w)]["aggregate"]
             print_summary(f"ω={w}, {evader_type}", agg)
 
-    # 1C  Sensing radius 
+    # ── 1C  Sensing radius ─────────────────────────────────────────
     print("\n[1C] Sensing radius sweep (r ∈ {20, 30, 50} units)")
     sensing_radii = [20, 30, 50]
     sensing_results = {}
@@ -244,7 +295,9 @@ def experiment1_parameter_sensitivity():
     return output
 
 
+# ──────────────────────────────────────────────
 # Experiment 2 – Environmental Complexity
+# ──────────────────────────────────────────────
 
 def experiment2_environmental_complexity():
     """
@@ -316,8 +369,9 @@ def experiment2_environmental_complexity():
         for evader_type in evader_types:
             agg = all_results[scenario][evader_type]["aggregate"]
             print(f"  {scenario:<20} {evader_type:<6} "
-                  f"{agg['capture_rate_mean']:>7.3f}±{agg['capture_rate_std']:.3f}  "
-                  f"{agg['survival_mean']:>7.1f}±{agg['survival_std']:.1f}")
+                  f"{agg['capture_rate']['mean']:>7.3f}±{agg['capture_rate']['std']:.3f}"
+                  f"{agg['avg_survival_time']['mean']:>7.1f}±{agg['avg_survival_time']['std']:.1f}"
+                  )
 
     elapsed = time.time() - t0
     output["elapsed_seconds"] = elapsed
@@ -326,17 +380,20 @@ def experiment2_environmental_complexity():
     return output
 
 
+# ──────────────────────────────────────────────
 # Experiment 3 – Scalability Analysis
+# ──────────────────────────────────────────────
 
 def experiment3_scalability():
     """
     Pursuer-to-evader ratios: 1:1, 2:1, 1:2
     Applied in all three scenarios and for both evader types.
+    Tests Kouzehgar et al.'s 'critical pursuers' finding.
     """
     print_header("Experiment 3 – Scalability Analysis (pursuer-to-evader ratios)")
     t0 = time.time()
 
-    # Ratios as (n_pursuers, n_evaders)
+    # Ratios as (n_pursuers, n_evaders); keep product reasonable
     ratios = [
         (5, 5,  "1:1"),
         (10, 5, "2:1"),
@@ -401,8 +458,9 @@ def experiment3_scalability():
             for _, _, ratio_label in ratios:
                 agg = all_results[scenario][evader_type][ratio_label]["aggregate"]
                 print(f"  {scenario:<20} {evader_type:<6} {ratio_label:<5} "
-                      f"{agg['capture_rate_mean']:>7.3f}±{agg['capture_rate_std']:.3f}  "
-                      f"{agg['survival_mean']:>7.1f}±{agg['survival_std']:.1f}")
+                      f"{agg['capture_rate']['mean']:>7.3f}±{agg['capture_rate']['std']:.3f}  "
+                      f"{agg['avg_survival_time']['mean']:>7.1f}±{agg['avg_survival_time']['std']:.1f}"
+                      )
 
     elapsed = time.time() - t0
     output["elapsed_seconds"] = elapsed
@@ -411,7 +469,9 @@ def experiment3_scalability():
     return output
 
 
-# Main
+# ──────────────────────────────────────────────
+# Entry point
+# ──────────────────────────────────────────────
 
 if __name__ == "__main__":
     import argparse
@@ -428,12 +488,12 @@ if __name__ == "__main__":
         help=f"Replications per configuration (default: {N_RUNS})"
     )
     parser.add_argument(
-        "--snapshot-step", type=int, default=SNAPSHOT_STEPS,
-        help=f"Simulation steps at which to capture snapshots (default: {SNAPSHOT_STEPS})"
+        "--snapshot-steps", nargs="+", type=int, default=[30, 100, 250, 450],
+        help="Simulation steps at which to capture snapshots"
     )
     args = parser.parse_args()
     N_RUNS        = args.n_runs        # override global for quick testing
-    SNAPSHOT_STEPS = args.snapshot_step  # override global snapshot timing
+    SNAPSHOT_STEPS = args.snapshot_steps  # override global snapshot timing
 
     print("The Hunters and the Hive – Planned Experiments")
     print(f"Running {N_RUNS} replications per configuration")
