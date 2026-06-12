@@ -98,7 +98,7 @@ Key parameters in `SimulationConfig`:
 | `pursuer_max_speed` | 2.0 | Pursuer maximum velocity |
 | `evader_max_speed` | 1.8 | Evader maximum velocity |
 | `pursuer_inertia` | 0.7 | PSO inertia weight |
-| `evader_type` | "ACO" | "ACO" or "PSO" |
+| `evader_type` | "ACO" or "PSO" |
 
 ## Experiment Results
 
@@ -118,15 +118,6 @@ The project includes three experiments:
 - 1:1 pursuer-to-evader ratio
 - 2:1 ratio (more pursuers)
 - 1:2 ratio (more evaders)
-
-## Sample Results
-
-| Scenario | Evader | Capture Rate | Avg Survival |
-|----------|--------|--------------|--------------|
-| Open Field | ACO | ~78% | ~133 steps |
-| Open Field | PSO | ~85% | ~110 steps |
-| Sparse Obstacles | ACO | ~72% | ~150 steps |
-| Dense Maze | ACO | ~45% | ~280 steps |
 
 See `MANUAL.md` for detailed usage instructions and `experiment_results/` for complete data.
 
